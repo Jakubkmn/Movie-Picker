@@ -24,11 +24,3 @@ class SLL:
                     curr = None
                 else:
                     curr = n_node
-
-    def stringify_list(self):
-        lst = ""
-        curr = self.head_node
-        while curr:
-            lst += str(curr) + '\n'
-            curr = curr.next_node
-        return lst

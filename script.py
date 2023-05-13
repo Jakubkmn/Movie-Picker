@@ -23,6 +23,7 @@ def insert_movies():
 my_genre_list = insert_genres()
 my_movie_list = insert_movies()
 
+
 selected_movie_genre = ""
 
 while len(selected_movie_genre) == 0:
@@ -37,27 +38,29 @@ while len(selected_movie_genre) == 0:
         genre_of_movies = genre_of_movies.get_next_node()
 
     for genre in matching_genres:
-        print(genre)
+        print(genre.capitalize())
 
     if len(matching_genres) == 1:
-        u_input = str(input("\nThe only matching genre for the specified input is " + matching_genres[0] + ". \nDo you want to look at " +
-            matching_genres[0] + " movies? Enter y for yes and n for no\n")).lower()
+        u_input = str(input("\nThe only matching genre for the specified input is " + matching_genres[0].capitalize() + ". \nDo you want to look at " +
+            matching_genres[0].capitalize() + " movies? Enter y for yes and n for no\n")).lower()
 
         if u_input == 'y':
             selected_movie_genre = matching_genres[0]
-            print('Selected movie genre' + selected_movie_genre)
+            print('Selected movie genre ' + selected_movie_genre)
+            print("\n")
             movie_list_head = my_movie_list.get_head_node()
             while movie_list_head.get_next_node() is not None:
                 sublist = movie_list_head.get_value().get_head_node()
                 if sublist.get_value()[0] == selected_movie_genre:
                     while sublist.get_next_node() is not None:
-                        print("Title " + sublist.get_value()[1])
-                        print("Release year " + sublist.get_value()[2])
-                        print("Rating " + sublist.get_value()[3])
-                        print("Runtime " + sublist.get_value()[4])
+                        print("Title: {0}".format(sublist.get_value()[1]))
+                        print("Release year {0}".format(sublist.get_value()[2]))
+                        print("Rating {0}/10".format(sublist.get_value()[3]))
+                        print("Runtime {0} minutes".format(sublist.get_value()[4]))
+                        print("\n")
                         sublist = sublist.get_next_node()
                 movie_list_head = movie_list_head.get_next_node()
 
-            repeat = str(input("\nDo you want to find other restaurants? Enter y for yes and n for no.\n")).lower()
+            repeat = str(input("\nDo you want to watch other genre? Enter Y for Yes and N for No.\n")).lower()
             if repeat == 'y':
                 selected_movie_genre = ""

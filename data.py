@@ -1,7 +1,5 @@
 genre = ['sci-fi', 'action', 'fantasy', 'superhero', 'crime', 'comedy', 'horror', 'drama']
 
-#movie = [['genre', 'title', 'Release Year', 'rating/10', 'Runtime']]
-
 movies = [['sci_fi', 'Dune', '2021', '8', '155'], 
         ['sci_fi', 'Star Wars IV', '1977', '8,6', '121'],
         ['action', 'Inception', '2010', '8,8', '148'],
